@@ -25,7 +25,7 @@ jobs:
       run: npm install -g @angular/cli
 
     - name: Run unit tests
-      run: ng test --watch-false --browsers=ChromeHeadless # watch: caso faça uma alteração se true roda todos os testes automaticamente, e o --browsers=ChromeHeadless é para o chrome usar menos memória
+      run: ng test --watch=false --browsers=ChromeHeadless # watch: caso faça uma alteração se true roda todos os testes automaticamente, e o --browsers=ChromeHeadless é para o chrome usar menos memória
 
     - name: Build the app
       run: ng build --prod --base-href "http://fernandadias9.github.io/actions/"
