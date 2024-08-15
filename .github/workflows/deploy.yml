@@ -9,26 +9,26 @@ jobs:
   build:
     runs-on: ubuntu-latest # aqui coloca em qual SO você quer rodar
 
-  steps:
-  - name: Checkout code
-    uses: actions/checkout@v3 # valida se o código está correto
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3 # valida se o código está correto
 
-  - name: Set up Node.js # precisamos dele pois o Angular roda em Node
-    uses: actions/setup-node@v3
-    with:
-      node-version: '18'
+    - name: Set up Node.js # precisamos dele pois o Angular roda em Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
 
-  - name: Install dependencies
-    run: npm install
+    - name: Install dependencies
+      run: npm install
 
-  - name: Install Angular CLI
-    run: npm install -g @angular/cli
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
 
-  - name: Run unit tests
-    run: ng test --watch-false --browsers=ChromeHeadless # watch: caso faça uma alteração se true roda todos os testes automaticamente, e o --browsers=ChromeHeadless é para o chrome usar menos memória
+    - name: Run unit tests
+      run: ng test --watch-false --browsers=ChromeHeadless # watch: caso faça uma alteração se true roda todos os testes automaticamente, e o --browsers=ChromeHeadless é para o chrome usar menos memória
 
-  - name: Build the app
-    run: ng build --prod --base-href "http://fernandadias9.github.io/actions/"
+    - name: Build the app
+      run: ng build --prod --base-href "http://fernandadias9.github.io/actions/"
 
   deploy:
     runs-on: ubuntu-latest
